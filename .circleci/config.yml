@@ -7,7 +7,13 @@ jobs:
     docker:
       # specify the version here
       - image: circleci/elixir:1.8
-
+        environment:
+          MIX_ENV: test
+      - image: circleci/postgres:9.6-alpine
+        environment:
+          POSTGRES_USER: postgres
+          POSTGRES_DB: exchange_test
+          POSTGRES_PASSWORD: postgres
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
